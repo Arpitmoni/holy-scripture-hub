@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yeshu Masih – Chamatkaar, Bhavishyavaani & Jeevan</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #f0d080;
+    --gold-dark: #8a6a1f;
+    --cream: #fdf8ee;
+    --white: #ffffff;
+    --parchment: #f5edd6;
+    --text-dark: #2a1a00;
+    --text-mid: #5a3e00;
+    --text-light: #8a6a30;
+    --shadow: rgba(100,60,0,0.18);
+    --glow: rgba(201,168,76,0.35);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--text-dark);
+    font-family: 'Crimson Pro', Georgia, serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px 80px;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(240,208,128,0.38) 0%, transparent 70%),
+      radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.15) 0%, transparent 60%),
+      linear-gradient(180deg, #fdf3d0 0%, #fdf8ee 60%, #f5edd6 100%);
+    overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c9a84c' fill-opacity='0.06'%3E%3Cpath d='M40 0 L42 38 L80 40 L42 42 L40 80 L38 42 L0 40 L38 38z'/%3E%3C/g%3E%3C/svg%3E") repeat;
+    pointer-events:none;
+  }
+  .hero-cross {
+    font-size: 4rem;
+    color: var(--gold);
+    margin-bottom: 18px;
+    text-shadow: 0 0 40px var(--glow);
+    animation: floatCross 4s ease-in-out infinite;
+  }
+  @keyframes floatCross { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+
+  .hero h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.8rem, 6vw, 4rem);
+    font-weight: 900;
+    color: var(--gold-dark);
+    letter-spacing: 0.04em;
+    line-height: 1.15;
+    text-shadow: 0 2px 24px rgba(201,168,76,0.25);
+    margin-bottom: 10px;
+  }
+  .hero-sub {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.85rem, 2.5vw, 1.15rem);
+    color: var(--text-light);
+    letter-spacing: 0.18em;
+    margin-bottom: 28px;
+  }
+  .hero-verse {
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--text-mid);
+    max-width: 600px;
+    line-height: 1.7;
+    border-left: 3px solid var(--gold);
+    padding-left: 18px;
+    margin: 0 auto 36px;
+  }
+
+  /* Language Toggle */
+  .lang-toggle {
+    display: flex;
+    background: rgba(201,168,76,0.12);
+    border: 1.5px solid var(--gold);
+    border-radius: 50px;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  .lang-btn {
+    padding: 9px 28px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: var(--gold-dark);
+    transition: all 0.3s;
+  }
+  .lang-btn.active {
+    background: var(--gold);
+    color: #fff;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(253,248,238,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1.5px solid rgba(201,168,76,0.3);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .nav-link {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--text-mid);
+    text-decoration: none;
+    padding: 14px 14px;
+    position: relative;
+    transition: color 0.3s;
+  }
+  .nav-link::after {
+    content:'';
+    position:absolute; bottom:8px; left:14px; right:14px;
+    height:2px; background:var(--gold);
+    transform:scaleX(0); transition:transform 0.3s;
+  }
+  .nav-link:hover { color: var(--gold-dark); }
+  .nav-link:hover::after { transform:scaleX(1); }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.4rem, 4vw, 2.4rem);
+    color: var(--text-dark);
+    font-weight: 700;
+  }
+  .section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 16px auto 0;
+  }
+  .section-divider span { width:60px; height:1.5px; background:var(--gold); display:block; }
+  .section-divider i { color:var(--gold); font-size:1.1rem; }
+
+  /* ── CARDS GRID ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid rgba(201,168,76,0.22);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s;
+    box-shadow: 0 4px 18px var(--shadow);
+    position: relative;
+  }
+  .card::before {
+    content:'';
+    position:absolute; top:0; left:0; right:0; height:3px;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+    opacity:0; transition:opacity 0.3s;
+  }
+  .card:hover { transform:translateY(-8px) scale(1.012); box-shadow:0 18px 48px rgba(100,60,0,0.18), 0 0 0 2px var(--gold-light); }
+  .card:hover::before { opacity:1; }
+
+  .card-thumb {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    background: linear-gradient(135deg, #f0d080, #c9a84c55);
+  }
+  .card-thumb-placeholder {
+    width:100%; height:180px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:3.5rem;
+    background: linear-gradient(135deg, #fdf3d0, #f0d080);
+  }
+  .card-body { padding: 20px 22px 24px; }
+  .card-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+  .card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    line-height: 1.35;
+  }
+  .card-desc {
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-cta {
+    margin-top: 14px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    color: var(--gold-dark);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-cta::after { content:'→'; transition:transform 0.2s; }
+  .card:hover .card-cta::after { transform:translateX(4px); }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+  .timeline::before {
+    content:'';
+    position:absolute; left:16px; top:0; bottom:0;
+    width:2px;
+    background: linear-gradient(180deg, transparent, var(--gold), var(--gold), transparent);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 48px;
+    cursor: pointer;
+  }
+  .timeline-dot {
+    position:absolute; left:-31px; top:4px;
+    width:18px; height:18px;
+    background: var(--gold);
+    border-radius:50%;
+    border:3px solid var(--cream);
+    box-shadow:0 0 0 3px var(--gold-light);
+    transition:transform 0.3s, box-shadow 0.3s;
+  }
+  .timeline-item:hover .timeline-dot { transform:scale(1.4); box-shadow:0 0 0 5px var(--glow); }
+  .timeline-year {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .timeline-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+  .timeline-desc {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    max-width: 680px;
+  }
+
+  /* ── VERSES ── */
+  .verses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .verse-card {
+    background: linear-gradient(135deg, #fffbf0, var(--parchment));
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 12px;
+    padding: 28px 26px;
+    position: relative;
+    overflow: hidden;
+  }
+  .verse-card::before {
+    content:'"';
+    position:absolute; top:-10px; left:16px;
+    font-family:'Cinzel Decorative',serif;
+    font-size:7rem;
+    color:rgba(201,168,76,0.12);
+    line-height:1;
+    pointer-events:none;
+  }
+  .verse-text {
+    font-size: 1.05rem;
+    font-style: italic;
+    line-height: 1.75;
+    color: var(--text-dark);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .verse-ref {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--gold-dark);
+  }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed; inset:0; z-index:1000;
+    background: rgba(30,15,0,0.72);
+    backdrop-filter: blur(6px);
+    opacity:0; pointer-events:none;
+    transition: opacity 0.4s;
+    display:flex; align-items:flex-start; justify-content:center;
+    padding-top: 0;
+  }
+  .modal-overlay.open { opacity:1; pointer-events:all; }
+
+  .modal-panel {
+    background: var(--cream);
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.25);
+    transform: translateY(-100%);
+    transition: transform 0.55s cubic-bezier(.22,.68,0,1.1);
+    position: relative;
+  }
+  .modal-overlay.open .modal-panel { transform:translateY(0); }
+
+  .modal-top-bar {
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .modal-tag {
+    font-family:'Cinzel',serif;
+    font-size:0.72rem;
+    letter-spacing:0.2em;
+    color:#fff;
+    opacity:0.85;
+  }
+  .modal-close {
+    background:rgba(255,255,255,0.2);
+    border:none; cursor:pointer;
+    width:34px; height:34px;
+    border-radius:50%;
+    color:#fff;
+    font-size:1.1rem;
+    display:flex; align-items:center; justify-content:center;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .modal-close:hover { background:rgba(255,255,255,0.35); transform:rotate(90deg); }
+
+  .modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 400px;
+  }
+  @media(max-width:620px){ .modal-body { grid-template-columns:1fr; } }
+
+  .modal-image-side {
+    position:relative;
+    background: linear-gradient(135deg, #fdf3d0, #f0d080);
+    min-height:300px;
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .modal-image-side .big-icon {
+    font-size:7rem;
+    opacity:0.5;
+  }
+  .modal-image-caption {
+    position:absolute; bottom:0; left:0; right:0;
+    padding:14px 18px;
+    background:linear-gradient(transparent, rgba(100,60,0,0.5));
+    font-family:'Cinzel',serif;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    color:#fff;
+    text-align:center;
+  }
+
+  .modal-info-side {
+    padding:36px 36px 32px;
+    display:flex; flex-direction:column; gap:18px;
+  }
+  .modal-title {
+    font-family:'Cinzel Decorative',serif;
+    font-size:clamp(1.1rem,3vw,1.6rem);
+    font-weight:700;
+    color:var(--text-dark);
+    line-height:1.3;
+  }
+  .modal-title-hi {
+    font-family:'Cinzel',serif;
+    font-size:0.9rem;
+    color:var(--text-light);
+    margin-top:4px;
+  }
+  .modal-divider { height:2px; background:linear-gradient(90deg, var(--gold), transparent); }
+  .modal-content-text {
+    font-size:1rem;
+    color:var(--text-mid);
+    line-height:1.8;
+  }
+  .modal-bible-ref {
+    font-family:'Cinzel',serif;
+    font-size:0.78rem;
+    letter-spacing:0.15em;
+    color:var(--gold-dark);
+    padding:10px 16px;
+    background:rgba(201,168,76,0.1);
+    border-left:3px solid var(--gold);
+    border-radius:0 8px 8px 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align:center;
+    padding:48px 20px;
+    background:linear-gradient(180deg, var(--cream), #f5edd6);
+    border-top:1px solid rgba(201,168,76,0.2);
+  }
+  footer .cross { font-size:2.5rem; color:var(--gold); margin-bottom:12px; }
+  footer p {
+    font-family:'Cinzel',serif;
+    font-size:0.8rem;
+    letter-spacing:0.15em;
+    color:var(--text-light);
+  }
+
+  /* Animate sections on scroll */
+  .fade-up { opacity:0; transform:translateY(32px); transition:opacity 0.7s, transform 0.7s; }
+  .fade-up.visible { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-cross">✝</div>
+  <h1 id="hero-title">Yeshu Masih<br/>Ke Chamatkaar</h1>
+  <div class="hero-sub" id="hero-sub">MIRACLES · PROPHECIES · LIFE · HISTORY · SCRIPTURE</div>
+  <div class="hero-verse" id="hero-verse">"Kyunki Ishwar ne jahan se itna prem kiya, ki usne apna iklauta Putra de diya, taki jo koi uspe iman laye woh nasha na ho balki hamesha ki zindagi paye." — Yuhanna 3:16</div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('hi')">हिंदी</button>
+    <button class="lang-btn" onclick="setLang('en')">English</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-link" href="#miracles" id="nav-mir">✦ Chamatkaar</a>
+  <a class="nav-link" href="#prophecies" id="nav-pro">✦ Bhavishyavaani</a>
+  <a class="nav-link" href="#timeline" id="nav-tl">✦ Jeevan Yatra</a>
+  <a class="nav-link" href="#history" id="nav-his">✦ Itihaas</a>
+  <a class="nav-link" href="#verses" id="nav-ver">✦ Vachan</a>
+</nav>
+
+<!-- ══════════ MIRACLES ══════════ -->
+<section id="miracles">
+  <div class="section-header fade-up">
+    <div class="section-label" id="lbl-mir">Chamatkaar / Miracles</div>
+    <div class="section-title" id="ttl-mir">Ishwari Chamatkaar</div>
+    <div class="section-divider"><span></span><i>✦</i><span></span></div>
+  </div>
+  <div class="cards-grid" id="miracles-grid"></div>
+</section>
+
+<!-- ══════════ PROPHECIES ══════════ -->
+<section id="prophecies" style="background:linear-gradient(180deg,#fdf8ee,#f5edd6,#fdf8ee); margin:0; max-width:100%; padding:80px 20px;">
+<div style="max-width:1200px;margin:0 auto;">
+  <div class="section-header fade-up">
+    <div class="section-label" id="lbl-pro">Bhavishyavaani / Prophecies</div>
+    <div class="section-title" id="ttl-pro">Poori Hui Bhavishyavaaniyaan</div>
+    <div class="section-divider"><span></span><i>✦</i><span></span></div>
+  </div>
+  <div class="cards-grid" id="prophecies-grid"></div>
+</div>
+</section>
+
+<!-- ══════════ TIMELINE ══════════ -->
+<section id="timeline">
+  <div class="section-header fade-up">
+    <div class="section-label" id="lbl-tl">Jeevan Yatra / Life Timeline</div>
+    <div class="section-title" id="ttl-tl">Yeshu Ki Jeevan Yatra</div>
+    <div class="section-divider"><span></span><i>✦</i><span></span></div>
+  </div>
+  <div class="timeline" id="timeline-list"></div>
+</section>
+
+<!-- ══════════ HISTORY ══════════ -->
+<section id="history" style="background:linear-gradient(180deg,#fdf8ee,#f5edd6,#fdf8ee);margin:0;max-width:100%;padding:80px 20px;">
+<div style="max-width:1200px;margin:0 auto;">
+  <div class="section-header fade-up">
+    <div class="section-label" id="lbl-his">Itihaas / History</div>
+    <div class="section-title" id="ttl-his">Mahan Aitihaasik Ghatnaayein</div>
+    <div class="section-divider"><span></span><i>✦</i><span></span></div>
+  </div>
+  <div class="cards-grid" id="history-grid"></div>
+</div>
+</section>
+
+<!-- ══════════ VERSES ══════════ -->
+<section id="verses">
+  <div class="section-header fade-up">
+    <div class="section-label" id="lbl-ver">Pavitr Vachan / Scripture</div>
+    <div class="section-title" id="ttl-ver">Prabhu Ke Vachan</div>
+    <div class="section-divider"><span></span><i>✦</i><span></span></div>
+  </div>
+  <div class="verses-grid" id="verses-grid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="cross">✝</div>
+  <p id="footer-txt">Prabhu Yeshu Masih Ki Jai Ho • Glory to Jesus Christ</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal-panel">
+    <div class="modal-top-bar">
+      <span class="modal-tag" id="modal-tag">CHAMATKAAR</span>
+      <button class="modal-close" onclick="closeModalBtn()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-image-side" id="modal-img-side">
+        <div class="big-icon" id="modal-icon">✝</div>
+        <div class="modal-image-caption" id="modal-caption"></div>
+      </div>
+      <div class="modal-info-side">
+        <div class="modal-title" id="modal-title"></div>
+        <div class="modal-title-hi" id="modal-title-hi"></div>
+        <div class="modal-divider"></div>
+        <div class="modal-content-text" id="modal-content"></div>
+        <div class="modal-bible-ref" id="modal-ref"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────────
+const DATA = {
+  miracles: [
+    {
+      icon:'🍷', tag:'Chamatkaar', tagEn:'Miracle',
+      title:'Paani Ko Sharaab Banana',titleEn:'Water into Wine',
+      desc:'Yeshu ne Kana ki shaadi mein paani ko sharaab mein badal diya — yeh unka pehla chamatkaar tha.',
+      descEn:'At the wedding in Cana, Jesus turned water into wine — His very first public miracle.',
+      ref:'Yuhanna 2:1-11', detail:'Yeshu ki Mata Mariam ne unse kaha ki sharaab khatam ho gayi. Yeshu ne paani ke 6 matke bharwaye aur unhe majlish ke mukhiya ke paas le jane ko kaha. Paani uthame sharaab ban gayi — aur woh sabse achchi sharaab thi jo anth mein paisi gayi.',
+      detailEn:"Mary told Jesus the wine had run out. Jesus instructed servants to fill six stone jars with water and take them to the master of the banquet. The water became wine — and the master said it was the best wine saved for last.",
+      caption:'Kana Ki Shaadi, Galeel'
+    },
+    {
+      icon:'🐟', tag:'Chamatkaar', tagEn:'Miracle',
+      title:'5000 Logo Ko Khana Khilana',titleEn:'Feeding the 5,000',
+      desc:'Paanch roti aur do machhliyon se Yeshu ne 5000 se zyada logo ka pet bhara aur 12 tokre bachey.',
+      descEn:'With five loaves and two fish, Jesus fed over 5,000 people, and twelve baskets of leftovers remained.',
+      ref:'Yuhanna 6:1-14', detail:'Bhaari bheed thi aur khaane ki koi vyavastha nahi thi. Shishya ne ek ladke ke paas se 5 rotiyan aur 2 machhliyan dhundhee. Yeshu ne upar dekha, Pita ko dhanyawaad diya aur khaana baant diya — sab tript hue aur 12 tokre bach gaye.',
+      detailEn:"A large crowd had gathered with no food. A boy had only five loaves and two fish. Jesus looked up to heaven, gave thanks, and distributed the food — everyone was satisfied and twelve full baskets remained.",
+      caption:'Galeel Ki Jheel Ka Kinara'
+    },
+    {
+      icon:'🌊', tag:'Chamatkaar', tagEn:'Miracle',
+      title:'Paani Par Chalna',titleEn:'Walking on Water',
+      desc:'Yeshu toofani raath mein Galeel ki jheel par paani ke upar chalte hue apne shishyon ke paas aaye.',
+      descEn:'In a stormy night, Jesus walked on the Sea of Galilee toward His disciples in the boat.',
+      ref:'Matth 14:22-33', detail:'Shishya naav mein the, toofan aa gaya tha. Raat ke chauthe pahar Yeshu paani par chalte hue aaye. Petrus bhi paani par chalne laga par dar se doobne laga. Yeshu ne haath badhaaya aur use bachaya.',
+      detailEn:"The disciples were in a boat when a storm arose. In the fourth watch of the night, Jesus came walking on the water. Peter stepped out and walked briefly until fear caused him to sink — Jesus reached out and caught him.",
+      caption:'Galeel Ki Jheel'
+    },
+    {
+      icon:'👁️', tag:'Chamatkaar', tagEn:'Miracle',
+      title:'Andhe Ko Aankhein Dena',titleEn:'Healing the Blind Man',
+      desc:'Yeshu ne janam se andhe aadmi ki aankhein mitti aur thook se lagakar khol deen.',
+      descEn:'Jesus healed a man blind from birth by making mud with saliva and anointing his eyes.',
+      ref:'Yuhanna 9:1-12', detail:'Yusuf naam ka aadmi janam se andhaa tha. Yeshu ne zameen par thook kar mitti banayi aur us andhe ki aankhon par lagayi. Use Siloam ke talab mein jakar dhone ko kaha. Woh gaya, dhoya, aur dekhne laga!',
+      detailEn:"A man had been blind from birth. Jesus spat on the ground, made mud, and applied it to the man's eyes. He told him to wash in the Pool of Siloam. The man went, washed, and came back seeing!",
+      caption:'Yerusalem, Siloam Ka Talab'
+    },
+    {
+      icon:'🧑‍🦯', tag:'Chamatkaar', tagEn:'Miracle',
+      title:'Lazarus Ko Zinda Karna',titleEn:'Raising Lazarus',
+      desc:'Lazarus ko mare 4 din ho gaye the — Yeshu ne usse kabre se zinda bulaya.',
+      descEn:'Lazarus had been dead for four days when Jesus called him out of the tomb alive.',
+      ref:'Yuhanna 11:1-44', detail:'Marta aur Mariam ke bhai Lazarus ki maut ho gayi. Yeshu chaar din baad pahunche. Yeshu roye — phir qabre ke paas gaye. Pathar hatao unhone kaha, aur aawaaz lagai "Lazarus! Bahar aa!" aur Lazarus zinda hokar bahar nikla.',
+      detailEn:"Lazarus, the brother of Martha and Mary, had died four days earlier. Jesus wept at the tomb, then commanded the stone rolled away. He called out, 'Lazarus, come out!' — and the dead man walked out wrapped in burial cloths.",
+      caption:'Bethany, Yerusalem Se 3 Kos'
+    },
+    {
+      icon:'🌀', tag:'Chamatkaar', tagEn:'Miracle',
+      title:'Toofan Ko Shant Karna',titleEn:'Calming the Storm',
+      desc:'Naav mein bhayankar toofan aaya — Yeshu ne uthkar hawa aur lahron ko chup hone ka hukm diya.',
+      descEn:'A violent storm rocked the boat — Jesus stood up and rebuked the wind and waves into calm.',
+      ref:'Markus 4:35-41', detail:'Yeshu shishyon ke saath naav mein so rahe the jab bhayankar toofan aaya. Shishyon ne jagaya: "Guru, humein parwaah nahi?" Yeshu ne uthkar hawa ko danta aur lehron se kaha "Shant ho, thum jao!" — aur tatkaal sab shant ho gaya.',
+      detailEn:"Jesus was sleeping in the stern when a furious storm arose. The frightened disciples woke Him: 'Teacher, don't you care if we drown?' Jesus rebuked the wind and said, 'Quiet! Be still!' — and it was completely calm.",
+      caption:'Galeel Ki Jheel'
+    },
+  ],
+  prophecies: [
+    {
+      icon:'⭐', tag:'Bhavishyavaani', tagEn:'Prophecy',
+      title:'Kunwari Se Janam',titleEn:'Virgin Birth',
+      desc:'Yeshaiyah ne 700 saal pehle bataya tha — ek kunwari Putra janmegi jiska naam Immanuel hoga.',
+      descEn:'Isaiah prophesied 700 years earlier — a virgin would give birth to a son named Immanuel.',
+      ref:'Yeshaiyah 7:14 → Matth 1:23', detail:'Nabee Yeshaiyah ne likha tha: "Dekho ek kunwari garbhvati hogi aur ek Putra janmegi." Yahee poora hua jab Mariam, jo kunwari thi, ne Yeshu ko janm diya. Yeh ek aisa chamatkaar tha jo sirf Ishwar kar sakta hai.',
+      detailEn:"The prophet Isaiah wrote: 'A virgin will conceive and give birth to a son, and will call him Immanuel.' This was fulfilled exactly when Mary, a virgin, gave birth to Jesus. Only God could orchestrate such a miracle across centuries.",
+      caption:'Bethlehem, Poori Ki Poori'
+    },
+    {
+      icon:'🏙️', tag:'Bhavishyavaani', tagEn:'Prophecy',
+      title:'Bethlehem Mein Janam',titleEn:'Born in Bethlehem',
+      desc:'Micah ne 700 saal pehle kaha — Israel ka shasak Bethlehem se aayega.',
+      descEn:'Micah predicted 700 years before that the ruler of Israel would come from Bethlehem.',
+      ref:'Micah 5:2 → Luka 2:4-7', detail:'Nabee Micah ne kaha tha: "Bethlehem Ephrathah, tu chhoti hai — lekin tujhse Israel ka shaasak niklegaa." Yusuf aur Mariam sarkaari jaanch ke liye Nasrath se Bethlehem aaye. Wahan Yeshu ka janam hua — Poori hui yeh bhavishyavani.',
+      detailEn:"Micah declared that from tiny Bethlehem a ruler would emerge whose origins are from ancient times. Joseph and Mary traveled from Nazareth to Bethlehem for a census — and there, in a manger, Jesus was born, fulfilling this precise prophecy.",
+      caption:'Micah 700 BC → 4 BC Bethlehem'
+    },
+    {
+      icon:'🫏', tag:'Bhavishyavaani', tagEn:'Prophecy',
+      title:'Gadhe Par Yerusalem Pravesh',titleEn:'Triumphal Entry on Donkey',
+      desc:'Zecharia ne 500 saal pehle kaha — Raja gadhe par sawar hokar aayega.',
+      descEn:'Zechariah predicted 500 years before that the King would come riding on a donkey.',
+      ref:'Zecharia 9:9 → Matth 21:1-9', detail:'Nabee Zecharia ne likha: "Dekho tera Raja aa raha hai, woh narm hai, gadhe par sawar hai." Yeshu ne apne shishyon ko gadha laane ko kaha aur Hosanna ki pokar ke saath Yerusalem mein dakhil hue — poori tarah Zecharia ki bhavishyavaani ke anusar.',
+      detailEn:"Zechariah wrote: 'Rejoice greatly — your king comes to you, gentle and riding on a donkey.' Jesus sent disciples for a colt, rode into Jerusalem as crowds spread cloaks and shouted Hosanna — fulfilling this 500-year-old prophecy precisely.",
+      caption:'Zecharia 520 BC → Jerusalem 30 AD'
+    },
+    {
+      icon:'🪙', tag:'Bhavishyavaani', tagEn:'Prophecy',
+      title:'30 Rupaye Mein Bikna',titleEn:'Betrayed for 30 Silver Coins',
+      desc:'Zecharia ne likha tha — 30 chandi ke sikke, kumbhar ke khet ke liye.',
+      descEn:'Zechariah recorded — 30 pieces of silver, thrown into the potter\'s field.',
+      ref:'Zecharia 11:12-13 → Matth 26:14-16', detail:'Zecharia ki bhavishyavaani: 30 chandi ke sikke mujhe diye gaye. Judas ne Yeshu ko 30 chandi ke sikkon mein Mukhya Pujariyon ko pakad liya. Paschataap mein usne sikke wapas pheke jo Mukhya Pujarion ne Kumbhar ki zamin khareedne ke kaam aaye.',
+      detailEn:"Zechariah wrote of being valued at thirty pieces of silver — thrown to the potter. Judas agreed to betray Jesus for exactly thirty silver coins. Overcome with remorse, he threw the money into the temple and priests used it to buy a potter's field — every detail fulfilled.",
+      caption:'Exact Bhavishyavaani, 500 Saal Pehle'
+    },
+    {
+      icon:'🕊️', tag:'Bhavishyavaani', tagEn:'Prophecy',
+      title:'Punah Jiwan (Resurrection)',titleEn:'The Resurrection',
+      desc:'Psalm 16 mein Dawood ne likha — Prabhu ka pavitra jan kabre mein nahi sadega.',
+      descEn:'Psalm 16 — the Holy One of God would not see decay in the grave.',
+      ref:'Psalm 16:10 → Luka 24:1-8', detail:'Dawood ne Psalm 16 mein kaha: "Tu meri jaan sheol mein nahi chhodega, na apne pavitra ko sadne dega." Yeshu teesre din maron mein se ji uthhe — yeh sabse mahan chamatkaar aur poori hui bhavishyavaani hai.',
+      detailEn:"David wrote in Psalm 16 that God would not abandon His Holy One to the grave or let Him see decay. On the third day after crucifixion, Jesus rose from the dead — the greatest miracle and the most powerful fulfilled prophecy in all of Scripture.",
+      caption:'Psalm 16 → Teen Deen Mein Poori'
+    },
+  ],
+  timeline: [
+    {
+      icon:'⭐', year:'~4 BC',
+      title:'Bethlehm Mein Janam', titleEn:'Birth in Bethlehem',
+      desc:'Yeshu ka janam ek charne mein hua. Farishtoun ne charaahon ko batlaya. Teen Magia (Gyaani) porab se aaye aur unhe takht namaaz kiya.',
+      descEn:'Jesus was born in a manger in Bethlehem. Angels announced His birth to shepherds. Three Magi came from the East and worshipped Him.',
+      ref:'Luka 2:1-20'
+    },
+    {
+      icon:'🕍', year:'~8 Saal',
+      title:'Mandir Mein Gyaan', titleEn:'Teaching in the Temple',
+      desc:'12 saal ki umra mein Yeshu Yerusalem ke Mandir mein Gyaniyon ke beech baithkar sawal poochhte aur jawab dete the — sab hairan the.',
+      descEn:'At age 12, Jesus sat among teachers in the Temple, asking and answering questions. Everyone was amazed at His understanding.',
+      ref:'Luka 2:41-52'
+    },
+    {
+      icon:'🌊', year:'~30 Saal',
+      title:'Yuhanna Dwara Baptisma', titleEn:'Baptism by John',
+      desc:'Yuhan ne Yordaan nadi mein Yeshu ko baptisma diya. Aasman khul gaya, Aatma kabootar ki tarah utri, Pita ki aawaaz aayi: "Yeh mera pyaara Putra hai."',
+      descEn:'John baptized Jesus in the Jordan River. Heaven opened, the Spirit descended like a dove, and the Father\'s voice declared: "This is my Son, whom I love."',
+      ref:'Matth 3:13-17'
+    },
+    {
+      icon:'🏜️', year:'~30 Saal',
+      title:'40 Din Ka Upwaas', titleEn:'40 Days in the Wilderness',
+      desc:'Aatma Yeshu ko jungle le gayi. 40 din ke upwas ke baad shaitan ne 3 baar para kiya — Yeshu ne Pavitr Granth se har baar jawaab diya.',
+      descEn:'The Spirit led Jesus into the wilderness for 40 days of fasting. Satan tempted Him three times — each time Jesus answered with Scripture and overcame.',
+      ref:'Matth 4:1-11'
+    },
+    {
+      icon:'📖', year:'~30-33 Saal',
+      title:'Seva Kaal', titleEn:'Ministry & Miracles',
+      desc:'3 saal ki seva — 12 shishyon ko chunna, bimaaron ko theek karna, mriton ko jilana, Pahadi par updesh, aur hazaron ko Ishwar ke Raj ki khushkhabri sunana.',
+      descEn:'3 years of ministry — choosing 12 disciples, healing the sick, raising the dead, the Sermon on the Mount, and proclaiming the Kingdom of God to thousands.',
+      ref:'Matth 5-25; Yuhanna 1-12'
+    },
+    {
+      icon:'🍞', year:'~33 Saal',
+      title:'Antim Bhojan', titleEn:'The Last Supper',
+      desc:'Pesah ki raat Yeshu ne shishyon ke saath antim bhojan khaya. Roti aur draksh-ras ko apne sharir aur khoon ka prateek banaya.',
+      descEn:'On Passover night, Jesus shared the Last Supper with His disciples, instituting the bread and wine as symbols of His body and blood.',
+      ref:'Matth 26:17-30'
+    },
+    {
+      icon:'✝️', year:'~33 Saal',
+      title:'Saleebi Maut (Crucifixion)', titleEn:'The Crucifixion',
+      desc:'Yeshu ko saaree duniya ke gunaahon ke liye Saleebi par maara gaya. Andhera chhaa gaya, parda phat gaya, zameen kaanp uthi.',
+      descEn:'Jesus was crucified for the sins of the world. Darkness covered the land, the temple veil tore, and the earth shook — He gave up His spirit.',
+      ref:'Matth 27:32-56'
+    },
+    {
+      icon:'🌅', year:'~33 Saal',
+      title:'Punarutthaan (Resurrection)', titleEn:'The Resurrection',
+      desc:'Teesre din Yeshu maron mein se ji uthhe. Qabar khaali thi. Fariste wahan the. Yeshu 40 din tak bahut logo ko darse mein dikhe.',
+      descEn:'On the third day, Jesus rose from the dead. The tomb was empty. Angels were present. Jesus appeared to many over 40 days, proving His resurrection.',
+      ref:'Luka 24:1-49'
+    },
+    {
+      icon:'☁️', year:'~33 Saal',
+      title:'Swarg Arohan (Ascension)', titleEn:'The Ascension',
+      desc:'40 din baad Yeshu apne shishyon ke samne aasman mein utha liye gaye aur ek badal unhe nazar se ohle kar gaya.',
+      descEn:'Forty days after His resurrection, Jesus ascended into heaven before His disciples, and a cloud hid Him from their sight.',
+      ref:'Karm 1:9-11'
+    },
+  ],
+  history: [
+    {
+      icon:'🏔️', tag:'Itihaas', tagEn:'History',
+      title:'Nuh Ka Jahaz', titleEn:"Noah's Ark",
+      desc:'Ishwar ne Nuh ko 120 saal mein ek vishaal jahaz banana ka hukm diya — poori zameen ke saare prani bachaye gaye.',
+      descEn:'God commanded Noah to build a massive ark over 120 years — all creatures of the earth were saved from the Great Flood.',
+      ref:'Utpatti 6-9', detail:'Ishwar ne dekha ki duniya mein paap badh gaya. Nuh ko ek jahaz banana ka hukm diya jisme uski family aur sab janwar rakhein gaye. 40 din aur 40 raat barish hui. Sari zameen doob gayi. Lekin Nuh aur jahaz ke andar sab salamat rahe. Badal ke baad Ishwar ne kamandar (rainbow) ka wada kiya.',
+      detailEn:"God saw the wickedness of man had grown great. He commanded Noah, a righteous man, to build a massive ark. For 40 days and nights it rained. The entire earth was flooded. But Noah, his family, and all the animals were saved. After the flood, God placed a rainbow as His covenant promise.",
+      caption:'Utpatti Kaal Ki Mahaan Ghatna'
+    },
+    {
+      icon:'🌊', tag:'Itihaas', tagEn:'History',
+      title:'Lal Sagar Ka Chamatkar', titleEn:'Parting of the Red Sea',
+      desc:'Moosa ne Lal Sagar par laathi uthayi — pani do taraf ho gaya aur 2 million Israelite par kadam rekha.',
+      descEn:'Moses stretched his staff over the Red Sea — the waters parted and 2 million Israelites walked through on dry ground.',
+      ref:'Nikalavaya / Exodus 14:21-31', detail:'Firaun ki sena Israeliyon ka picha kar rahi thi. Samne Lal Sagar tha, peeche sena. Ishwar ne Moosa se kaha laathi uthaao. Poori raat ek bhaari hawa bahi aur sagar do hisso mein baat gaya — Israelite sookhi zameen par chalte gaye. Jab Misri sena aaye, pani wapas aa gaya.',
+      detailEn:"Pharaoh's army pursued Israel to the Red Sea. God told Moses to stretch out his staff — a strong east wind blew all night, parting the sea. The Israelites walked through on dry ground. When the Egyptian army followed, the waters returned and the army was destroyed.",
+      caption:'Exodus 1446 BC'
+    },
+    {
+      icon:'🏰', tag:'Itihaas', tagEn:'History',
+      title:'Yerusalem Ka Mandir', titleEn:'Temple of Jerusalem',
+      desc:'Raja Solomon ne Ishwar ke liye ek majestic Mandir banwaya — duniya ke 7 ajoobon mein se ek.',
+      descEn:"King Solomon built a magnificent Temple for God in Jerusalem — considered one of the ancient world's greatest wonders.",
+      ref:'1 Raajaaon 6-8', detail:'Dawood ke Putra Solomon ne saat saal mein Yerusalem ka Mandir banwaya. 30,000 se zyada mazdoor lage, sunhare baartan, cedrus ki lakdi, aur Ishwar ki Shaan se Mandir bhar gaya. Ishwar ki Mauj (Shekinah glory) Mandir mein utri — sab log zameen par gir padey.',
+      detailEn:"Solomon, son of David, built the Temple in seven years with over 30,000 workers. The structure featured cedar, gold, and precious stones. When the Ark was placed inside, the glory of God filled the Temple so powerfully that the priests could not stand to minister.",
+      caption:'Yerusalem ~957 BC'
+    },
+    {
+      icon:'🦁', tag:'Itihaas', tagEn:'History',
+      title:'Daniel Aur Sher', titleEn:'Daniel in the Lions\' Den',
+      desc:'Daniel ko sher ki maand mein dala gaya — lekin Ishwar ne sher ka muh band kar diya aur Daniel salamat raha.',
+      descEn:"Daniel was thrown into the lions' den — but God shut the lions' mouths and Daniel emerged completely unharmed.",
+      ref:'Daniel 6:1-28', detail:'Raja Darius ke wakt Daniel ne Ishwar ki ibadat jaari rakhi, shaahi hukm ke bawajood. Use sher ki maand mein daala gaya. Agle din Raja daudte hue aaya — Daniel salamat tha! Usne kaha "Mere Ishwar ne apna farishta bheja aur sher ka muh band kar diya."',
+      detailEn:"When King Darius outlawed prayer to any god, Daniel continued praying three times daily. He was thrown into the lions' den. At dawn, the anxious king rushed over — Daniel was unharmed. 'My God sent His angel and shut the mouths of the lions,' Daniel declared.",
+      caption:'Babylon ~539 BC'
+    },
+    {
+      icon:'🔥', tag:'Itihaas', tagEn:'History',
+      title:'Agni Bhaati Mein Teen Jawaan', titleEn:'Three Men in the Fiery Furnace',
+      desc:'Shadrach, Meshach aur Abednego ko aag mein daala gaya — ek chautha vyakti unke saath dikh ke sab hairan ho gaye.',
+      descEn:'Shadrach, Meshach and Abednego were thrown into a blazing furnace — a fourth mysterious figure appeared with them and all emerged unharmed.',
+      ref:'Daniel 3:1-30', detail:'Baabiyl ke Raja Nebuchadnezzar ne ek sone ki murti banayi aur hukm diya sab use sajda karen. Teen Ibraniy jawaan mane. Unhe saat guna zyada dhakti ki agni mein daala gaya. Lekin Raja ne dekha — woh char log hain, chautha Ishwar ke Putra jaisa hai! Woh bahir aaye — unke baal bhi nahi jale.',
+      detailEn:"King Nebuchadnezzar commanded all to bow to his golden image. Three Hebrew young men refused. They were thrown into a furnace seven times hotter than normal — yet the king saw four figures walking in the fire, the fourth like a son of God. They emerged with not even a hair singed.",
+      caption:'Babylon ~586 BC'
+    },
+  ],
+  verses: [
+    { text_hi:'Kyunki Ishwar ne jahan se itna prem kiya, ki usne apna iklauta Putra de diya.', text_en:'For God so loved the world that he gave his one and only Son.', ref:'Yuhanna 3:16' },
+    { text_hi:'Main raasta hoon, sach hoon aur zindagi hoon — koi mere bina Pita ke paas nahi aa sakta.', text_en:'I am the way, the truth and the life. No one comes to the Father except through me.', ref:'Yuhanna 14:6' },
+    { text_hi:'Main aaya ki tum mein zindagi ho, aur woh bahutaayat se ho.', text_en:'I have come that they may have life, and have it to the full.', ref:'Yuhanna 10:10' },
+    { text_hi:'Prabhu mera charvaaha hai, mujhe kisi cheez ki zaroorat nahi.', text_en:'The Lord is my shepherd, I shall not want.', ref:'Zabur 23:1' },
+    { text_hi:'Aao mere paas, jitne thake aur bojh se dabbe ho — main tumhe aaram doonga.', text_en:'Come to me, all who are weary and burdened, and I will give you rest.', ref:'Matth 11:28' },
+    { text_hi:'Mujh mein sab kuch kar sakta hoon jo mujhe taaqat deta hai.', text_en:'I can do all things through Christ who strengthens me.', ref:'Philipiyon 4:13' },
+    { text_hi:'Prabhu ka darr gyaan ki shuruaat hai.', text_en:'The fear of the Lord is the beginning of wisdom.', ref:'Amsal 9:10' },
+    { text_hi:'Tumhare liye mere iraade shanti ke hain, burai ke nahi, ek ummeedo wala mustaqbil dene ke liye.', text_en:'For I know the plans I have for you — plans to prosper you, plans to give you hope and a future.', ref:'Yeremiah 29:11' },
+  ]
+};
+
+let currentLang = 'hi';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  // Hero
+  document.getElementById('hero-title').innerHTML = lang==='hi'
+    ? 'Yeshu Masih<br/>Ke Chamatkaar'
+    : 'The Miracles of<br/>Jesus Christ';
+  document.getElementById('hero-sub').textContent = lang==='hi'
+    ? 'चमत्कार · भविष्यवाणी · जीवन यात्रा · इतिहास · वचन'
+    : 'MIRACLES · PROPHECIES · LIFE · HISTORY · SCRIPTURE';
+  document.getElementById('hero-verse').textContent = lang==='hi'
+    ? '"Kyunki Ishwar ne jahan se itna prem kiya, ki usne apna iklauta Putra de diya, taki jo koi uspe iman laye woh nasha na ho balki hamesha ki zindagi paye." — Yuhanna 3:16'
+    : '"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life." — John 3:16';
+
+  // Section labels
+  const labels = {
+    'lbl-mir': ['Chamatkaar / Miracles','Miracles'],
+    'ttl-mir': ['Ishwari Chamatkaar','Divine Miracles'],
+    'lbl-pro': ['Bhavishyavaani / Prophecies','Prophecies'],
+    'ttl-pro': ['Poori Hui Bhavishyavaaniyaan','Fulfilled Prophecies'],
+    'lbl-tl':  ['Jeevan Yatra / Life Timeline','Life Timeline'],
+    'ttl-tl':  ['Yeshu Ki Jeevan Yatra','The Life Journey of Jesus'],
+    'lbl-his': ['Itihaas / History','Biblical History'],
+    'ttl-his': ['Mahan Aitihaasik Ghatnaayein','Great Historical Events'],
+    'lbl-ver': ['Pavitr Vachan / Scripture','Holy Scripture'],
+    'ttl-ver': ['Prabhu Ke Vachan','Words of the Lord'],
+  };
+  for(const [id, [hi, en]] of Object.entries(labels)) {
+    document.getElementById(id).textContent = lang==='hi' ? hi : en;
+  }
+
+  // Nav
+  const navTxt = lang==='hi'
+    ? ['✦ Chamatkaar','✦ Bhavishyavaani','✦ Jeevan Yatra','✦ Itihaas','✦ Vachan']
+    : ['✦ Miracles','✦ Prophecies','✦ Life Timeline','✦ History','✦ Scripture'];
+  ['nav-mir','nav-pro','nav-tl','nav-his','nav-ver'].forEach((id,i)=>{
+    document.getElementById(id).textContent = navTxt[i];
+  });
+
+  // Footer
+  document.getElementById('footer-txt').textContent = lang==='hi'
+    ? 'Prabhu Yeshu Masih Ki Jai Ho • Glory to Jesus Christ'
+    : 'Glory to Jesus Christ • Prabhu Yeshu Masih Ki Jai Ho';
+
+  renderAll();
+}
+
+// ── RENDER CARDS ──────────────────────────────────────────
+function makeCard(item, type, idx) {
+  const title = currentLang==='hi' ? item.title : (item.titleEn||item.title);
+  const desc  = currentLang==='hi' ? item.desc  : (item.descEn||item.desc);
+  const tag   = currentLang==='hi' ? item.tag   : (item.tagEn||item.tag);
+  return `
+  <div class="card fade-up" data-type="${type}" data-idx="${idx}" onclick="openModalByIndex(this)">
+    <div class="card-thumb-placeholder">${item.icon}</div>
+    <div class="card-body">
+      <div class="card-tag">${tag}</div>
+      <div class="card-title">${title}</div>
+      <div class="card-desc">${desc}</div>
+      <div class="card-cta">${currentLang==='hi'?'Aur Padhen':'Read More'}</div>
+    </div>
+  </div>`;
+}
+
+function makeTimelineItem(item, i) {
+  const title = currentLang==='hi' ? item.title : (item.titleEn||item.title);
+  const desc  = currentLang==='hi' ? item.desc  : (item.descEn||item.desc);
+  return `
+  <div class="timeline-item fade-up" data-type="timeline" data-idx="${i}" onclick="openModalByIndex(this)" style="animation-delay:${i*0.08}s">
+    <div class="timeline-dot"></div>
+    <div class="timeline-year">${item.icon} ${item.year}</div>
+    <div class="timeline-title">${title}</div>
+    <div class="timeline-desc">${desc}</div>
+  </div>`;
+}
+
+function makeVerse(v) {
+  const txt = currentLang==='hi' ? v.text_hi : v.text_en;
+  return `
+  <div class="verse-card fade-up">
+    <div class="verse-text">${txt}</div>
+    <div class="verse-ref">— ${v.ref}</div>
+  </div>`;
+}
+
+function renderAll() {
+  document.getElementById('miracles-grid').innerHTML = DATA.miracles.map((m,i)=>makeCard(m,'miracle',i)).join('');
+  document.getElementById('prophecies-grid').innerHTML = DATA.prophecies.map((p,i)=>makeCard(p,'prophecy',i)).join('');
+  document.getElementById('history-grid').innerHTML = DATA.history.map((h,i)=>makeCard(h,'history',i)).join('');
+  document.getElementById('timeline-list').innerHTML = DATA.timeline.map((t,i)=>makeTimelineItem(t,i)).join('');
+  document.getElementById('verses-grid').innerHTML = DATA.verses.map(makeVerse).join('');
+  observeFade();
+}
+
+// ── MODAL ──────────────────────────────────────────────────
+function openModalByIndex(el) {
+  const type = el.getAttribute('data-type');
+  const idx  = parseInt(el.getAttribute('data-idx'));
+  const map  = { miracle:'miracles', prophecy:'prophecies', history:'history', timeline:'timeline' };
+  const item = DATA[map[type]][idx];
+  if(!item) return;
+  const lang    = currentLang;
+  const title   = lang==='hi' ? item.title : (item.titleEn||item.title);
+  const titleHi = lang==='en' ? item.title : (item.titleEn||'');
+  const content = lang==='hi' ? (item.detail||item.desc) : (item.detailEn||item.descEn||item.desc);
+  const tag     = (lang==='hi' ? (item.tag||'') : (item.tagEn||item.tag||''));
+  document.getElementById('modal-tag').textContent      = (tag||type).toUpperCase();
+  document.getElementById('modal-icon').textContent     = item.icon;
+  document.getElementById('modal-caption').textContent  = item.caption||'';
+  document.getElementById('modal-title').textContent    = title;
+  document.getElementById('modal-title-hi').textContent = titleHi;
+  document.getElementById('modal-content').textContent  = content;
+  document.getElementById('modal-ref').textContent      = '📖 '+(item.ref||'');
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(e) {
+  if(e.target===document.getElementById('modal')) closeModalBtn();
+}
+function closeModalBtn() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModalBtn(); });
+
+// ── SCROLL FADE ────────────────────────────────────────────
+function observeFade() {
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold:0.12});
+  document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+}
+
+// ── INIT ──────────────────────────────────────────────────
+renderAll();
+</script>
+</body>
+</html>
