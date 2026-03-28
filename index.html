@@ -956,6 +956,62 @@ function observeFade() {
 }
 
 // ── INIT ──────────────────────────────────────────────────
+<!-- ══════════ FLOATING MUSIC PLAYER ══════════ -->
+<style>
+  .music-fab {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 2000;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8a6a1f, #c9a84c);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 20px rgba(100,60,0,0.35), 0 0 0 3px rgba(201,168,76,0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .music-fab:hover {
+    transform: scale(1.12);
+  }
+  .music-fab.playing {
+    animation: fabPulse 1.8s ease-in-out infinite;
+  }
+  @keyframes fabPulse {
+    0%,100% { box-shadow: 0 4px 20px rgba(100,60,0,0.35), 0 0 0 3px rgba(201,168,76,0.25); }
+    50%      { box-shadow: 0 4px 20px rgba(100,60,0,0.35), 0 0 0 14px rgba(201,168,76,0); }
+  }
+</style>
+
+<audio id="bgAudio" src="yeshu.mp3" loop></audio>
+
+<button class="music-fab" id="musicFab" onclick="toggleAudio()" title="Sangeet Play/Pause">🎵</button>
+
+<script>
+const audio = document.getElementById('bgAudio');
+const fab   = document.getElementById('musicFab');
+let playing = false;
+
+function toggleAudio() {
+  if (!playing) {
+    audio.play().then(() => {
+      playing = true;
+      fab.textContent = '⏸';
+      fab.classList.add('playing');
+    }).catch(() => {});
+  } else {
+    audio.pause();
+    playing = false;
+    fab.textContent = '🎵';
+    fab.classList.remove('playing');
+  }
+}
+</script>
 renderAll();
 </script>
 </body>
